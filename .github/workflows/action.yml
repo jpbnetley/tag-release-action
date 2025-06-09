@@ -1,0 +1,16 @@
+name: Tag Version
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to release'
+        required: true
+        type: string
+jobs:
+  build-and-publish:
+    name: Build and publish main
+    permissions:
+      contents: write
+    uses: ./.github/workflows/version-release.yml
+    with:
+      version: ${{ github.event.inputs.version }}
