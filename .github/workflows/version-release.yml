@@ -1,0 +1,20 @@
+name: Tag Version (runner)
+
+on: 
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to release'
+        required: true
+        type: string
+
+jobs:
+  release:
+    name: Create github release
+    permissions:
+      contents: write
+    uses: jpbnetley/tag-release-action/.github/workflows/action.yml@main
+    with: 
+      version: ${{ github.event.inputs.version }}
+              
+        
