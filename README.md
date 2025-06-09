@@ -38,3 +38,6 @@ jobs:
     with: 
       version: ${{ github.event.inputs.version }}
 ```
+
+## Ref
+- This project consumes the reusable action: https://github.com/jpbnetley/npm-version-release-action
