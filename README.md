@@ -20,19 +20,21 @@ version:
 ## Example workflow
 ```yml
 name: Tag Version
-on:
+
+on: 
   workflow_dispatch:
     inputs:
       version:
         description: 'Version to release'
         required: true
         type: string
+
 jobs:
-  build-and-publish:
-    name: Build and publish main
+  release:
+    name: Create github release
     permissions:
       contents: write
     uses: jpbnetley/tag-release-action/.github/workflows/action.yml@main
-    with:
+    with: 
       version: ${{ github.event.inputs.version }}
 ```
