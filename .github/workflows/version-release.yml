@@ -33,6 +33,12 @@ jobs:
           git push origin "$VERSION"
           echo "version=$version" >> $GITHUB_OUTPUT
 
+      - name: Set job summary
+        run: |
+          echo "## Version" >> $GITHUB_STEP_SUMMARY
+          echo "- Version: ${{ steps.tag-release.outputs.version }}" >> $GITHUB_STEP_SUMMARY
+
+
   github-release:
         name: Create github release
         needs: release
